@@ -15,6 +15,7 @@
 ################################################################################
 FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update && apt-get install -y libpcre3-dev zlib1g-dev cmake libssl-dev libpcre2-dev pkg-config
-RUN git clone --depth 1 https://github.com/apache/trafficserver.git
+RUN git clone --depth 1 https://github.com/shukitchan/trafficserver.git
+RUN git checkout shukitchan-patch-30
 RUN cp $SRC/trafficserver/tests/fuzzing/oss-fuzz.sh $SRC/build.sh
 WORKDIR $SRC/trafficserver/
